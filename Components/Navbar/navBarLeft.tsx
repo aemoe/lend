@@ -1,12 +1,12 @@
 import React, { ReactNode } from 'react';
-import "./navbar.module.scss";
+import styles from "./navbar.module.scss";
 
 interface Props{
     children?: ReactNode
 }
 
 const NavBarLeft : React.FC<Props> = ({children} : Props) => (
-    <div className='navbar-left'>
+    <div className={styles.navbar_left}>
         {children}
     </div>
 )

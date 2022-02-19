@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useRef, useState } from "react"
-import "./tab.module.scss"
+import styles from"./tab.module.scss"
 
 interface TabProps{
     children?: ReactNode
@@ -31,7 +31,7 @@ const TabHeader: React.FC<TabHeaderProps> = (props : TabHeaderProps) => {
     }, [props.tabChange, setLeft, React.Children.count(props.children)])
 
     return(
-        <div className="tab-header">
+        <div className={styles.tab_header}>
             {props.children}
             <span className="indicator"
                 style={
@@ -65,7 +65,7 @@ const TabHeaderItem: React.FC<TabHeaderItemProps> = (props : TabHeaderItemProps)
     }, [props.tabChange, setActive, tabIndex])
 
     return(
-        <div className={`tab-header-item ${active ? "active" : ""}`} onClick={()=>{props.setTabChange(tabIndex)}}>
+        <div className={styles.tab_header_item +` ${active ? styles.active : ""}`} onClick={()=>{props.setTabChange(tabIndex)}}>
             {props.title}
         </div>
     )
@@ -77,7 +77,7 @@ interface TabContentProps{
 
 const TabContent: React.FC<TabContentProps> = (props : TabContentProps) => {
     return(
-        <div className="tab-content">
+        <div className={styles.tab_content}>
             {props.children}
         </div>
     )
@@ -114,7 +114,7 @@ const TabContentItem: React.FC<TabContentItemProps> = (props : TabContentItemPro
     }, [props.tabChange, setActive, tabIndex])
 
     return(
-        <div ref={ref} className={`tab-content-item ${active ? "active" : ""}`}>
+        <div ref={ref} className={styles.tab_content_item+` ${active ? styles.active : ""}`}>
             {props.children}
         </div>
     )

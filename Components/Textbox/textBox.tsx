@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import "./textBox.module.scss"
+import styles from "./textBox.module.scss"
 
 interface Props{
     onClick: () => Promise<void> | void,
@@ -49,21 +49,21 @@ const TextBox : React.FC<Props> = (props : Props) => {
     }
 
     return(
-        <div className={`textbox ${props.validation.trim() === "" && props.validationCollapse ? "validation-collapse" : ""}`}>
-            <div className={props.button || props.symbol ? "textbox-button" : ""}
+        <div className={styles.textbox +` ${props.validation.trim() === "" && props.validationCollapse ? styles.validation_collapse : ""}`}>
+            <div className={props.button || props.symbol ? styles.textbox_button : ""}
             style={{borderColor: focus ? '#427af1' : '#646464'}}>
                 <input type="text" disabled={props.disabled} required value={props.value} onChange={handleChange} onFocus={()=>onFocus()} onBlur={()=>onBlur()}/>
-                <span data-tip={props.buttonTooltip} className={`placeholder ${props.disabled ? "placeholder-disabled" : ""}`}>{placeHolder}</span>
+                <span data-tip={props.buttonTooltip} className={styles.placeholder +` ${props.disabled ? styles.placeholder_disabled : ""}`}>{placeHolder}</span>
                 {props.button ?
-                    props.buttonTooltip ? <span data-tip={props.buttonTooltip} data-for="borrow-dialog-tooltip" className={`input-button ${props.disabled || props.buttonDisabled ? "input-button-disabled" : ""}`} onClick={buttonClick}>{props.button}</span>: 
-                    <span className={`input-button ${props.disabled || props.buttonDisabled? "input-button-disabled" : ""}`} onClick={buttonClick}>{props.button}</span>
+                    props.buttonTooltip ? <span data-tip={props.buttonTooltip} data-for="borrow_dialog_tooltip" className={styles.input_button+` ${props.disabled || props.buttonDisabled ? styles.input_button_disabled : ""}`} onClick={buttonClick}>{props.button}</span>: 
+                    <span className={styles.input_button +` ${props.disabled || props.buttonDisabled? styles.input_button_disabled : ""}`} onClick={buttonClick}>{props.button}</span>
                     :""}
                 {props.symbol ?
-                    <span className="input-button input-button-disabled">{props.symbol}</span>
+                    <span className={styles.input_button+""+styles.input_button_disabled}>{props.symbol}</span>
                     : ""
                 }
             </div>
-            <span className={`validation`}>{props.validation}</span>
+            <span className={styles.validation}>{props.validation}</span>
         </div>
     )
 }

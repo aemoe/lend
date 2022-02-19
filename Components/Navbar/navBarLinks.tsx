@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react"
-import "./navbar.module.scss"
+import styles from "./navbar.module.scss"
 
 interface Props{
     children?: ReactNode
@@ -7,8 +7,8 @@ interface Props{
 
 const NavBarLinks: React.FC<Props> = ({children} : Props) => {
     return (
-        <div className="navbar-links">
-            <ul className="navbar-links-list">
+        <div className={styles.navbar_links}>
+            <ul className={styles.navbar_links_list}>
                 {children}
             </ul>
         </div>

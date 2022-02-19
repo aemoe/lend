@@ -1,5 +1,5 @@
 import React from "react"
-import "./themeSwitch.module.scss"
+import styles from"./themeSwitch.module.scss"
 import { Sun, Moon } from "../../public/huIcons/huIcons";
 
 // import { ReactComponent as Sun } from '../../assets/sun.svg';
@@ -19,8 +19,8 @@ const ThemeSwitch: React.FC<Props> = ({darkMode, setDarkMode, setOpenMenu} : Pro
         }
     }
     return (
-        <div className={`theme-switch ${darkMode ? "theme-switch-dark-mode" : ""}`} onClick={() => handleOpenMenu()}>
-            <div className={`switch-button ${darkMode ? "switch-button-dark-mode" : ""}`}></div>
+        <div className={styles.theme_switch +` ${darkMode ? "theme_switch_dark_mode" : ""}`} onClick={() => handleOpenMenu()}>
+            <div className={styles.switch_button +` ${darkMode ? "switch_button_dark_mode" : ""}`}></div>
             <Sun darkMode={darkMode} size="15px"/>
             <Moon darkMode={darkMode} size="15px"/>
         </div>

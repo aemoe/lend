@@ -1,11 +1,11 @@
-import React, { useEffect, useState} from "react"
-import "./hundredMenu.module.scss"
-import {ethers} from "ethers"
+import React, { useEffect, useState } from "react"
+import styles from "./hundredMenu.module.scss"
+import { ethers } from "ethers"
 import { Spinner } from "../../public/huIcons/huIcons"
 import { Network } from "../../pages/libs/networks"
 import { BigNumber } from "../../pages/libs/bigNumber"
 
-interface Props{
+interface Props {
     hndPrice: number,
     hndBalance: BigNumber | null,
     hndEarned: BigNumber | null,
@@ -24,12 +24,12 @@ const HundredMenu: React.FC<Props> = (props: Props) => {
     const [tvl, setTvl] = useState<BigNumber | null>(null)
 
     useEffect(() => {
-        if(props.network  && props.network.hundredLiquidityPoolAddress && props.hundredBalance){
-            if(props.network.liquidity){
+        if (props.network && props.network.hundredLiquidityPoolAddress && props.hundredBalance) {
+            if (props.network.liquidity) {
                 const temp = +props.hundredBalance.toString() / (props.network.hndPoolPercent ? props.network.hndPoolPercent : 1) * props.hndPrice
                 setTvl(BigNumber.parseValue(temp.noExponents()))
             }
-            else{
+            else {
                 const temp = +props.hundredBalance.toString() * 2 * props.hndPrice
                 setTvl(BigNumber.parseValue(temp.noExponents()))
             }
@@ -38,22 +38,22 @@ const HundredMenu: React.FC<Props> = (props: Props) => {
     }, [props.hndPrice, props.hundredBalance])
 
     return (
-        <div className="hundred-menu">
-            <hr/>
-            <div className="hundred-menu-item">
-                <div className="hundred-menu-item-label"><label>HND Price </label><span>${BigNumber.parseValue(props.hndPrice.toString()).toRound(2, true, true)}</span></div>
-                {tvl ? <div className="hundred-menu-item-label"><label>{props.network?.liquidity ? "Liquidity" : "TVL"}</label><span>${tvl.toRound(2, true, true)}</span></div> : null}
-                {props.network  && props.network.trade ? <div className="hundred-menu-item-label"><a className="hundred-menu-link" href={props.network.trade} target="_blank" rel="noreferrer">Trade</a></div> : null}
-                {props.network  && props.network.addLiquidity ? <div className="hundred-menu-item-label"><a className="hundred-menu-link" href={props.network.addLiquidity} target="_blank" rel="noreferrer">Add Liquidity</a></div> : null}
-                {props.network  && props.network.stakeLp ? <div className="hundred-menu-item-label"><a className="hundred-menu-link" href={props.network.stakeLp} target="_blank" rel="noreferrer">Stake LP</a></div> : null}
+        <div className={styles.hundred_menu}>
+            <hr />
+            <div className={styles.hundred_menu_item}>
+                <div className={styles.hundred_menu_item_label}><label>HND Price </label><span>${BigNumber.parseValue(props.hndPrice.toString()).toRound(2, true, true)}</span></div>
+                {tvl ? <div className={styles.hundred_menu_item_label}><label>{props.network?.liquidity ? "Liquidity" : "TVL"}</label><span>${tvl.toRound(2, true, true)}</span></div> : null}
+                {props.network && props.network.trade ? <div className={styles.hundred_menu_item_label}><a className={styles.hundred_menu_link} href={props.network.trade} target="_blank" rel="noreferrer">Trade</a></div> : null}
+                {props.network && props.network.addLiquidity ? <div className={styles.hundred_menu_item_label}><a className={styles.hundred_menu_link} href={props.network.addLiquidity} target="_blank" rel="noreferrer">Add Liquidity</a></div> : null}
+                {props.network && props.network.stakeLp ? <div className={styles.hundred_menu_item_label}><a className={styles.hundred_menu_link} href={props.network.stakeLp} target="_blank" rel="noreferrer">Stake LP</a></div> : null}
             </div>
-            <div className="hundred-menu-item">
-                <hr/>
-                <div className="hundred-menu-item-label"><label>HND Balance </label><span>{props.hndBalance ? (props.hndBalance.gt(BigNumber.from(0)) ? props.hndBalance.toRound(2, true, true) : "0.00") : "--"}</span></div>
-                {props.hndEarned && +props.hndEarned.toString() > 0 ? 
-                    <><div className="hundred-menu-item-label"><label>HND Earned (Legacy)</label><span>{props.hndEarned ? props.hndEarned?.gt(BigNumber.from(0)) ? props.hndEarned?.toRound(2, true, true) : "0.00" : "--"}</span></div>
-                    <div className={`${props.hndSpinner ? "hundred-menu-item-button-disabled" : "hundred-menu-item-button"}`} onClick={() => !props.hndSpinner ? props.handleCollect() : null}>
-                        {props.hndSpinner ? (<Spinner size={"25px"}/>) : "Claim Legacy HND"}</div></> : null
+            <div className={styles.hundred_menu_item}>
+                <hr />
+                <div className={styles.hundred_menu_item_label}><label>HND Balance </label><span>{props.hndBalance ? (props.hndBalance.gt(BigNumber.from(0)) ? props.hndBalance.toRound(2, true, true) : "0.00") : "--"}</span></div>
+                {props.hndEarned && +props.hndEarned.toString() > 0 ?
+                    <><div className={styles.hundred_menu_item_label}><label>HND Earned (Legacy)</label><span>{props.hndEarned ? props.hndEarned?.gt(BigNumber.from(0)) ? props.hndEarned?.toRound(2, true, true) : "0.00" : "--"}</span></div>
+                        <div className={`${props.hndSpinner ? styles.hundred_menu_item_button_disabled : styles.hundred_menu_item_button}`} onClick={() => !props.hndSpinner ? props.handleCollect() : null}>
+                            {props.hndSpinner ? (<Spinner size={"25px"} />) : "Claim Legacy HND"}</div></> : null
                 }
             </div>
         </div>

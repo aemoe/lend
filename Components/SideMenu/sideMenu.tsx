@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react"
-import "./sideMenu.module.scss"
+import styles from  "./sideMenu.module.scss"
 
 interface Props{
     open: boolean,
@@ -24,13 +24,13 @@ const SideMenu: React.FC<Props> = ({open, setSideMenu, setOpenAddress, children,
     
     return (
         open ?(
-        <div id="side-menu" className="sideMenu">
-            <div className="sideMenu-overlay" onClick={() => handleClose()}>
+        <div id="side-menu" className={styles.sideMenu}>
+            <div className={styles.sideMenu_overlay} onClick={() => handleClose()}>
             </div>
-            <div className="sideMenu-wrapper">    
+            <div className={styles.sideMenu_wrapper}>    
                 <span className="close" onClick={() => handleClose()}>
                 </span>
-                <div className="sideMenu-content">
+                <div className={styles.sideMenu_content}>
                     {children}
                 </div>
             </div>

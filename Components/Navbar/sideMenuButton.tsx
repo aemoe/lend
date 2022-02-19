@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import styles from"./navbar.module.scss"
 
 interface Props {
     setSideMenu: React.Dispatch<React.SetStateAction<boolean>>,
@@ -17,7 +18,7 @@ const SideMenuButton: React.FC<Props> = ({setSideMenu}: Props) => {
     //     margin: '0 10px',
     //     position: 'relative',
     //     cursor: 'pointer',
-    //     transition: 'all 0.2s ease-out',
+    //     transition: 'all 0.2s ease_out',
     //     padding:"0 10px"
     // }
 
@@ -31,8 +32,8 @@ const SideMenuButton: React.FC<Props> = ({setSideMenu}: Props) => {
     //     position:'absolute',
     //     left: '50%',
     //     top: `${hover ? '15%' : '20%'}`,
-    //     transform: 'translate(-50%, -20%)',
-    //     transition: 'all 0.1s ease-in-out'
+    //     transform: 'translate(_50%, _20%)',
+    //     transition: 'all 0.1s ease_in_out'
     // }
 
     // const dot2 = {
@@ -45,8 +46,8 @@ const SideMenuButton: React.FC<Props> = ({setSideMenu}: Props) => {
     //     position:'absolute',
     //     left: '50%',
     //     top:'50%',
-    //     transform: 'translate(-50%, -50%)',
-    //     transition: 'all 0.1s ease-in-out',
+    //     transform: 'translate(_50%, _50%)',
+    //     transition: 'all 0.1s ease_in_out',
     // }
 
     // const dot3 = {
@@ -59,15 +60,15 @@ const SideMenuButton: React.FC<Props> = ({setSideMenu}: Props) => {
     //     position:'absolute',
     //     left: '50%',
     //     top:`${hover ? '85%' : '80%'}`,
-    //     transform: 'translate(-50%, -80%)',
-    //     transition: 'all 0.1s ease-in-out',
+    //     transform: 'translate(_50%, _80%)',
+    //     transition: 'all 0.1s ease_in_out',
     // }
 
     return (
-        <div className="menu-button" onClick={() => setSideMenu(true)} onMouseOver={() => setHover(true)} onMouseOut = {() => {setHover(false)}}>
-            <span className="dot"></span>
-            <span className="dot"></span>
-            <span className="dot"></span>
+        <div className={styles.menu_button} onClick={() => setSideMenu(true)} onMouseOver={() => setHover(true)} onMouseOut = {() => {setHover(false)}}>
+            <span className={styles.dot}></span>
+            <span className={styles.dot}></span>
+            <span className={styles.dot}></span>
         </div>
     )
 }

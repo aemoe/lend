@@ -1,5 +1,5 @@
 import React from "react"
-import "./switch.module.scss"
+import styles from "./switch.module.scss"
 
 interface Props{
     disabled: boolean,
@@ -17,14 +17,14 @@ const SwitchButton: React.FC<Props> = (props : Props) => {
     
     return (
         props.switchToolTip ? 
-        <div data-tip={props.switchToolTip} className={`switch ${props.checked ? "switch-checked" : ""} ${props.disabled ? "switch-button-disable" : "switch-button-enabled"}`}  onClick={handleClick}>
-            <div className={`switch-button`}>
+        <div data-tip={props.switchToolTip} className={styles.switch +`  ${props.checked ? styles.switch_checked : ""} ${props.disabled ? styles.switch_button_disable : styles.switch_button_enabled}`}  onClick={handleClick}>
+            <div className={styles.switch_button}>
 
             </div>
         </div>
         :
-        <div className={`switch ${props.checked ? "switch-checked" : ""} ${props.disabled ? "switch-button-disable" : "switch-button-enabled"}`}  onClick={handleClick}>
-            <div className={`switch-button`}>
+        <div className={styles.switch +` ${props.checked ? styles.switch_checked : ""} ${props.disabled ? styles.switch_button_disable : styles.switch_button_enabled}`}  onClick={handleClick}>
+            <div className={styles.switch_button}>
 
             </div>
         </div>

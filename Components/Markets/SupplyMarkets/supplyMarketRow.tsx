@@ -17,19 +17,19 @@ interface Props{
 
 const SupplyMarketRow: React.FC<Props> = (props : Props) =>{
     return (
-        <tr className={props.details?.spinner ? "disable-row" : ""}>
+        <tr className={props.details?.spinner ? styles.disable_row : ""}>
         <td onClick={() =>props.details ? (!props?.details?.spinner ? props.supplyMarketDialog(props.details) : null) : null}>
-          <div className="asset"> 
-              <div className="asset-logo">
-                <img className="rounded-circle" src={props?.details?.underlying.logo} alt=""/>
+          <div className={styles.asset}> 
+              <div className={styles.asset_logo}>
+                <img className={styles.rounded_circle} src={props?.details?.underlying.logo} alt=""/>
               </div>
               <span>{props?.details?.underlying.symbol}</span>
           </div>
         </td>
-        <td className={`apy ${props.details ? (+props.details?.supplyApy.toFixed(2) > 0 ? "positive" : "") : ""}`}>
-            <div className="supply-apy">
+        <td className={styles.apy +` ${props.details ? (+props.details?.supplyApy.toFixed(2) > 0 ? styles.positive : "") : ""}`}>
+            <div className={styles.supply_apy}>
               <StarBpro active={props.details && +props.details?.hndAPR.toString() > 0 ? true : false} backstop={props.details?.backstop ? true : false}/>
-                <GeneralDetailsItemContentItem className="general-details-item-content-item-pointer" onClick={() => props.details && !props?.details.spinner ? props.supplyMarketDialog(props?.details) : null}
+                <GeneralDetailsItemContentItem className={styles.general_details_item_content_item_pointer} onClick={() => props.details && !props?.details.spinner ? props.supplyMarketDialog(props?.details) : null}
                     label={`${ props.details && +props?.details?.totalMaxSupplyApy.toString() > 0 ? formatSupplyApyRange(+props.details.totalMinSupplyApy, +props.details.totalMaxSupplyApy) : "0.00"}%`}
                     value=""
                 />
@@ -42,7 +42,7 @@ const SupplyMarketRow: React.FC<Props> = (props : Props) =>{
         </td>
         <td onClick={() => props.details &&  !props.details.spinner ? props.supplyMarketDialog(props.details) : null}>
             <i
-              className={`circle${
+              className={styles.circle +`${
                 props.details && +props.details.underlying.walletBalance.toRound(3) <= 0
                   ? "-o"
                   : ""
@@ -52,7 +52,7 @@ const SupplyMarketRow: React.FC<Props> = (props : Props) =>{
           
         </td>
         <td>
-          <div className="spinner-container">
+          <div className={styles.spinner_container}>
             {props.details && +props.details.collateralFactor.toString() > 0? 
               <SwitchButton disabled={props.details.spinner} checked={props?.details?.isEnterMarket} onClick={()=>{props.details ? props.enterMarketDialog(props.details) : null}}/>
               : <SwitchButton disabled={true} switchToolTip={props.details ? +props.details.collateralFactor.toString() > 0 ? null : "Assets that earn HND can't be used as collateral": null }/>

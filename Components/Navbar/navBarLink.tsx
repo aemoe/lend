@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react"
-import "./navbar.module.scss"
+import styles from "./navbar.module.scss"
 
 interface Props{
     link: string,
@@ -10,8 +10,8 @@ interface Props{
 const NavbarLink: React.FC<Props> = ({link, target, children} : Props) => {
    
     return (
-        <li className="navbar-links-list-item">
-            <a className="nav-link" style={{cursor: "pointer"}} href={link} target={target ? target : ""}>{children}</a>
+        <li className={styles.navbar_links_list_item}>
+            <a className={styles.nav_link} style={{cursor: "pointer"}} href={link} target={target ? target : ""}>{children}</a>
         </li>
     )
 }

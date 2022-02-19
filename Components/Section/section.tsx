@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react"
-import styles from "../style.module.scss"
+import styles from "./style.module.scss"
 
 interface Props{
     className?: string,
@@ -8,8 +8,8 @@ interface Props{
 
 const Section: React.FC<Props> = (props : Props) => {
     return (
-        <div className={`section ${props.className ? props.className : ""}`}>
-            <div className="section-content">
+        <div className={styles.section +` ${props.className ? props.className : ""}`}>
+            <div className={styles.section_content}>
                 {props.children}
             </div>
         </div>

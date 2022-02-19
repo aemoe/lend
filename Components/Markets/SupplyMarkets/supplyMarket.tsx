@@ -22,7 +22,7 @@ const SupplyMarket: React.FC<Props> = (props: Props) => {
     });
 
     return (
-        <div className="market-content">
+        <div className={styles.market_content}>
             <ReactTooltip
                 place="top"
                 effect="solid"
@@ -45,8 +45,8 @@ const SupplyMarket: React.FC<Props> = (props: Props) => {
                 </p>
             </ReactTooltip>
 
-            <table className="market-table">
-                <thead className="market-table-header">
+            <table className={styles.market_table}>
+                <thead className={styles.market_table_header}>
                     <tr>
                         <th>Asset</th>
                         <th>
@@ -71,7 +71,7 @@ const SupplyMarket: React.FC<Props> = (props: Props) => {
                         <th>Collateral</th>
                     </tr>
                 </thead>
-                <tbody className="market-table-content">
+                    <tbody className={styles.market_table_content}>
                     {props.generalData?.totalSupplyBalance?.gt(BigNumber.from('0')) && (
                         <tr>
                             <td

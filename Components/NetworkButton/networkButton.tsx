@@ -1,7 +1,7 @@
 import React from "react"
 import { useRef } from "react"
 import { Network } from "../../pages/libs/networks"
-import "./networkButton.module.scss"
+import styles from "./networkButton.module.scss"
 
 interface Props{
     network: Network | null,
@@ -22,22 +22,22 @@ const NetworkButton : React.FC<Props> = (props : Props) => {
 
     if(props.network){
         return (
-            <div className="network-button" onClick={() => handleOpenNetworks()}>
+            <div className={styles.network_button} onClick={() => handleOpenNetworks()}>
             {
-                <div className="network-button-content">
-                    <img src={props.network.logo} alt="" className="network-logo"/>
-                    <span className="network-name">{props.network.network}</span>
-                    <span className="arrow">&#9660;</span>    
+                <div className={styles.network_button_content}>
+                    <img src={props.network.logo} alt="" className={styles.network_logo}/>
+                    <span className={styles.network_name}>{props.network.network}</span>
+                    <span className={styles.arrow}>&#9660;</span>    
                 </div>
             }
             </div>
         )
     }
     else return (
-        <div className="network-button" onClick={() => handleOpenNetworks()}>
-            <div className="network-button-content">
-                <span className="network-name">Networks</span>
-                <span className="arrow">&#9660;</span>    
+        <div className={styles.network_button} onClick={() => handleOpenNetworks()}>
+            <div className={styles.network_button_content}>
+                <span className={styles.network_name}>Networks</span>
+                <span className={styles.arrow}>&#9660;</span>    
             </div>
         </div>
     )

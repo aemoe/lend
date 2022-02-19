@@ -1,5 +1,5 @@
 import React from "react"
-import "./airdropMenu.module.scss"
+import styles from "./airdropMenu.module.scss"
 import {ethers} from "ethers"
 import { DoneIcon, MoneyBagIcon, Spinner } from "../../public/huIcons/huIcons"
 import { Network } from "../../pages/libs/networks"
@@ -51,19 +51,19 @@ const AirdropMenu: React.FC<Props> = (props: Props) => {
     }
 
     return (
-        <div className="airdrop-menu">
+        <div className={styles.airdrop_menu}>
             {
                 props.airdrops.filter(x=> !x.hasClaimed).length > 0 ?
                 <>
-                    <div className="airdrop-menu-label">
+                    <div className={styles.airdrop_menu_label}>
                         Unclaimed Airdrop
                     </div>
-                    <div className="airdrop-unclaimed">
+                    <div className={styles.airdrop_unclaimed}>
                         {
                             props.airdrops.filter(x=>!x.hasClaimed).map((a, index) => {
                                 return(
-                                    <div key={index} className="airdrop-menu-item">
-                                        <div className="airdrop-menu-item-values" >
+                                    <div key={index} className={styles.airdrop_menu_item}>
+                                        <div className={styles.airdrop_menu_item_values} >
                                             {a.amount.map((am, index2) => 
                                                 
                                                     <div key={`a-${index2}`}>{am.value.toRound(2)} {am.symbol}
@@ -76,8 +76,8 @@ const AirdropMenu: React.FC<Props> = (props: Props) => {
                             })
                         }
                     </div>
-                    <div className="airdrop-menu-item">
-                        <button className={`${props.spinner ? "airdrop-menu-item-button-disabled" : "airdrop-menu-item-button"}`} onClick={() =>props.spinner ? null : handleClaimAll()}>
+                    <div className={styles.airdrop_menu_item}>
+                        <button className={`${props.spinner ? styles.airdrop_menu_item_button_disabled : styles.airdrop_menu_item_button}`} onClick={() =>props.spinner ? null : handleClaimAll()}>
                            {props.spinner ? (<Spinner size={"25px"}/>) : "Claim All"}
                         </button> 
                     </div>
@@ -87,16 +87,16 @@ const AirdropMenu: React.FC<Props> = (props: Props) => {
             {
                 props.airdrops.filter(x=> x.hasClaimed).length > 0 ?
                 <>
-                    <div className="airdrop-menu-label">
+                    <div className={styles.airdrop_menu_label}>
                         Airdrop History
                     </div>
                     {
-                        <div className="airdrop-history">
+                        <div className={styles.airdrop_history}>
                             {
                                 props.airdrops.filter(x=>x.hasClaimed).map((a, index) => {
                                     return(
-                                        <div key={index} className="airdrop-menu-item">
-                                            <div className="airdrop-menu-item-values" >
+                                        <div key={index} className={styles.airdrop_menu_item}>
+                                            <div className={styles.airdrop_menu_item_values} >
                                                 {a.amount.map((am, index) => {
                                                     return (
                                                         <div key={index}>{am.value.toRound(2)} {am.symbol}</div>

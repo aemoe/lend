@@ -8,7 +8,7 @@ interface Props{
 
 const MarketContainer: React.FC<Props> = (props : Props) => {
     return(
-        <div className="market-container">
+        <div className={styles.market_container}>
             {props.children}
         </div>
     )
@@ -16,7 +16,7 @@ const MarketContainer: React.FC<Props> = (props : Props) => {
 
 const MarketContainerTitle : React.FC<Props> = (props : Props) => {
     return(
-        <div className="market-container-title">
+        <div className={styles.market_container_title}>
             {props.children}
         </div>
     )
@@ -24,7 +24,7 @@ const MarketContainerTitle : React.FC<Props> = (props : Props) => {
 
 const MarketContainerShowMore : React.FC<Props> = (props : Props) => {
     return(
-        <div className="market-container-title market-container-show-more" onClick = {props.onClick}>
+        <div className={styles.market_container_title+""+styles.market_container_show_more} onClick = {props.onClick}>
             {props.children}
         </div>
     )

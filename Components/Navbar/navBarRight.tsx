@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react"
-import "./navbar.module.scss"
+import styles from "./navbar.module.scss"
 
 interface Props{
     className?: string
@@ -8,7 +8,7 @@ interface Props{
 
 const NavBarRight: React.FC<Props> = (props : Props) => {
     return (
-        <div className={`navbar-right ${props.className ? props.className : ""}`}>
+        <div className={styles.navbar_right +` ${props.className ? props.className : ""}`}>
             {props.children}
         </div>
     )

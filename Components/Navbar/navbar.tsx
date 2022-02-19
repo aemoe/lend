@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react"
-import "./navbar.module.scss"
+import styles from "./navbar.module.scss"
 
 interface Props {
     isTablet: boolean,
@@ -10,7 +10,7 @@ interface Props {
 const Navbar: React.FC<Props> = (props: Props) => {
     return (
             <div className={`navbar ${props.isTablet || props.isMobile ? "navbar-mobile" : ""}`}>
-                <div className="navbar-content">
+                <div className={styles.navbar_content}>
                     {props.children}
                 </div>
             </div>

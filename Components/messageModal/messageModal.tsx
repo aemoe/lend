@@ -1,5 +1,5 @@
 import React, {useRef, useEffect} from "react"
-import "./messageModal.module.scss"
+import styles from "./messageModal.module.scss"
 import closeIcon from "../../assets/icons/closeIcon.png"
 
 interface Props {
@@ -46,15 +46,15 @@ const MessageModal: React.FC<Props> = (props) => {
 
     return (
         props.show ? (
-            <div className={`dialog ${props.show ? "open-dialog" : ""}`}>
-                <div ref={ref} className="message-box">
-                    <img src={closeIcon} alt="Close Icon" className="dialog-close" onClick={()=>props.setShow(false)} />  
-                    <div className="message-box-content">
-                        <div className="message-box-text">
+            <div className={styles.dialog+`${props.show ? "open_dialog" : ""}`}>
+                <div ref={ref} className={styles.message_box}>
+                    <img src={closeIcon} alt="Close Icon" className="dialog_close" onClick={()=>props.setShow(false)} />  
+                    <div className={styles.message_box_content}>
+                        <div className={styles.message_box_text}>
                             We are on Arbitrum. Please switch.
                         </div>
-                        <div className="message-box-action">
-                            <button className="message-box-button" onClick={handleButtonClick}>Switch to Arbitrum</button>
+                        <div className={styles.message_box_action}>
+                            <button className={styles.message_box_button} onClick={handleButtonClick}>Switch to Arbitrum</button>
                         </div>
                     </div>
                 </div>

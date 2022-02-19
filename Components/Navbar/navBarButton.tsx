@@ -1,5 +1,5 @@
 import React from "react"
-import './navbarButton.module.scss'
+import styles from './navbarButton.module.scss'
 
 interface Props {
     menuOpen: boolean
@@ -12,10 +12,10 @@ const NavBarButton: React.FC<Props> = (props: Props) => {
     }
 
     return (
-        <div className={`navbar-button ${props.menuOpen ? "navbar-button-clicked" : ""}`} onClick={() => handleClick()}>
-            <span className="bar bar1"></span>
-            <span className="bar bar2"></span>
-            <span className="bar bar3"></span>
+        <div className={styles.navbar_button +` ${props.menuOpen ? styles.navbar_button_clicked : ""}`} onClick={() => handleClick()}>
+            <span className={styles.bar+""+styles.bar1}></span>
+            <span className={styles.bar+""+styles.bar2}></span>
+            <span className={styles.bar+""+styles.bar3}></span>
         </div>
     )
 }

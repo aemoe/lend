@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react"
-import "./navbar.module.scss"
+import styles from"./navbar.module.scss"
 
 interface Props {
     menuOpen: boolean,
@@ -8,7 +8,7 @@ interface Props {
 
 const NavbarMobile: React.FC<Props> = ({menuOpen, children}: Props) => {
     return (
-        <div className={`navbar-mobile-content ${menuOpen ? "navbar-mobile-content-open" : ""}`}>
+        <div className={styles.navbar_mobile_content +` ${menuOpen ? styles.navbar_mobile_content_open : ""}`}>
             {children}
         </div>
     )

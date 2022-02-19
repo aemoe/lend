@@ -1,6 +1,6 @@
 import React from "react"
 import { Network, NETWORKS } from "../../pages/libs/networks"
-import "./networksView.module.scss"
+import styles from"./networksView.module.scss"
 
 interface Props {
     network : Network | null
@@ -73,13 +73,13 @@ const NetworksView : React.FC<Props> = ({network} : Props) => {
         }
     }
     return (
-        <div className="networks-view">
-            <div className="networks-caption">Networks</div>
+        <div className={styles.networks_view}>
+            <div className={styles.networks_caption}>Networks</div>
             {
                 Object.values(NETWORKS).map(( value, index) => {
                     return(
-                        <div className={`network-item ${value.chainId === network?.chainId ? "network-selected" : ""}`} key={index} onClick={() => value.chainId === network?.chainId ? null : switchNetwork(value)}>
-                            <img src={value.logo} className="network-logo" alt="" />
+                        <div className= {styles.network_item +` ${value.chainId === network?.chainId ? styles.network_selected : ""}`} key={index} onClick={() => value.chainId === network?.chainId ? null : switchNetwork(value)}>
+                            <img src={value.logo} className={styles.network_logo} alt="" />
                             <span>{value.network}</span>
                         </div>  
                     ) 

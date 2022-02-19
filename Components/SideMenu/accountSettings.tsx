@@ -1,6 +1,6 @@
 import React from "react"
 import { getShortenAddress } from "../../pages/libs/helpers"
-import "./accountSettings.module.scss"
+import styles from "./accountSettings.module.scss"
 
 interface Props{
     address: string,
@@ -18,11 +18,11 @@ const AccountSettings: React.FC<Props> = (props: Props) => {
     }
 
     return (
-        <div className="account-settings">
-            <div className="account-settings-item">
+        <div className={styles.account_settings}>
+            <div className={styles.account_settings_item}>
                 <hr/>
-                <div className="account-settings-item-label"><label>Address </label><span>{getShortenAddress(props.address)}</span></div>
-                <div className="account-settings-item-button" onClick={() => handleDisconnect()}>Disconnect</div>
+                <div className={styles.account_settings_item_label}><label>Address </label><span>{getShortenAddress(props.address)}</span></div>
+                <div className={styles.account_settings_item_button} onClick={() => handleDisconnect()}>Disconnect</div>
             </div>
         </div>
     )
