@@ -1,0 +1,44 @@
+.hundred_button {
+    border: 1px solid var(--buttonColor);
+    color: var(--text);
+    margin: 0 5px;
+    display: flex;
+    height: 40px;
+    min-width: 110px;
+    max-width: 210px;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 0 0px;
+    transition: background-color 0.2s ease-out;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.hundred_button:hover {
+    background-color: var(--buttonColor);
+    color: var(--buttonHover2);
+}
+
+.hundred_button .hundred_button_content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.hundred_button .hundred_button_content .hundred_name {
+    padding: 0 8px;
+}
+
+.hundred_button .hundred_button_content .arrow {
+    font-size: 0.7rem;
+}
+
+.hundred_button .hundred_logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--text);
+}

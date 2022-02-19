@@ -1,0 +1,23 @@
+.borrow_limit_section{
+ height: 80px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ color: var(--text);
+}
+
+.borrow_limit_header{
+    font-size: 1rem;
+    color: var(--secondaryText);
+}
+
+.borrow_limit_item{
+    display: flex;
+    justify-content: space-between;
+    color: var(--secondaryText);
+    font-size: .9rem;
+}
+
+.borrow_limit_item .borrow_limit_item_details span{
+    padding: 0 3px;
+}

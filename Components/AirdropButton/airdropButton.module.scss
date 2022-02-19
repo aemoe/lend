@@ -1,0 +1,56 @@
+.airdrop_button {
+    border: 1px solid var(--buttonColor);
+    color: var(--text);
+    margin: 0 5px;
+    display: flex;
+    height: 40px;
+    min-width: 110px;
+    max-width: 210px;
+    border-radius: 20px;
+    padding: 0 0px;
+    transition: background-color 0.2s ease-out;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.airdrop_button_hover:hover {
+    cursor: pointer;
+    background-color: var(--buttonColor);
+    color: var(--buttonHover2);
+}
+
+.airdrop_button .airdrop_button_content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    user-select: none;
+}
+
+.airdrop_button .airdrop_button_content .airdrop_name {
+    text-align: center;
+}
+
+.airdrop_button .airdrop_button_content .arrow {
+    font-size: 0.7rem;
+}
+
+.airdrop_button .airdrop_amount {
+    flex: 1;
+    padding-left: 5px;
+}
+
+.airdrop_button_spinner{
+    background-color: #e9e9e9;
+    color:#494949;
+}
+
+.airdrop_button_spinner .airdrop_button_content{
+    opacity: 0.5;
+}
+
+.airdrop_button .airdrop_spinner{
+    position: absolute;
+}
